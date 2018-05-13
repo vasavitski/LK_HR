@@ -1,0 +1,460 @@
+﻿<head>
+<meta charset = "UTF8" httpequiv = "contenttype"/>
+<!--<link rel="stylesheet" type="text/css" href="myStyle.css">-->
+<style>
+.page
+{
+	display: block;
+	width: 1024px;
+	height: 600px;
+	margin: 0 auto;
+	border: 0px solid;
+
+}
+.page__row
+{
+	display: block;
+	border: 0px solid coral;
+}
+
+.page__cell {
+	display: block;
+	float: left;
+	border: 0px solid;
+}
+
+.column-nav
+{
+	display: block;
+	float: left;
+	border: 0px solid yellow;
+	max-width: 170px;
+}
+
+.column-nav__org
+{
+	display: block;
+	width: 170px;
+	height: 50%;
+
+	padding-top: 20px;
+	background-color: #1a1a1a;
+	text-align: center;
+}
+.column-nav__user
+{
+	display: block;
+	width: 170px;
+	height: 50%;
+
+	background-color: #8dbf30;
+	text-align: center;
+}
+.navUser__link
+{
+	color: #f0f0f0;
+	display: inline-block;
+	padding: 20px;
+	font-size: 14px;
+}
+.active_link
+{
+	background-color: #74b300;
+	font-size: 16px;
+	padding: 10px;
+}
+.active-green
+{
+	background-color: #bbd983;
+	font-size: 16px;
+	padding: 10px;
+	margin-top: 20px;
+}
+.logo
+{
+	margin-top: 20px;
+	margin: 0 auto;
+	width: 50px;
+	height: 40px;
+	border: 0px solid;
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	background-color: #8dbf30;
+	padding-top: 10px;
+	
+}
+.area-work
+{
+	display: block;
+	float: left;
+	border: 0px solid;
+	width: 834px;
+	height: 100%;
+}
+
+.area-work__nav__items
+{
+	display: block;
+	border: 0px solid;
+	
+	height: 140px;
+	background-color: #a5d7a4;
+}
+.area-work__nav__item
+{
+	display: block;
+	float: left;
+	width: 160px;
+	height: 100%;
+	float: left;
+	list-style: none;
+	/*margin-left: 10px;
+	margin-right: 10px;*/
+	color: white;
+	font-size: 18px;
+	padding-top: 6%;
+	text-align: center;
+}
+.area-work-place
+{
+	display: block;
+	background-color: #f0f0f0;
+	border: 0px solid;
+	width: 100%;
+	height: 100%;
+
+}
+
+.nav
+{
+	display: block;
+	background-color: #a5d7a4;
+
+}
+
+.nav__list
+{
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	justify-content: space-between;
+}
+.nav__link
+{
+	text-align: center; 
+	padding: 40px;
+	display: block;
+}
+.link
+{
+	color: #e7f4e7;
+	text-decoration: none;
+}
+.link:hover 
+{
+	color: green;
+}
+		#tabs
+		{
+			font-size: 15pt;
+			text-align: center;
+
+		}
+		#tabs .tab
+		{
+			display: block;
+			float: left;
+			padding: 5px 10px;
+			cursor: pointer;
+			position: relative;
+			z-index: 5;
+			width: 200px;
+			height: 80px;
+			border: 0px solid;
+			background-color: #a5d7a4;
+		}
+		.nav-link
+		{
+			display: inline-block;
+			color: white;
+			margin-top: 25px;
+		}
+		#tabs .whiteborder
+		{
+			
+			border-bottom: 0px solid #fff;
+
+			background-color: #6dc46b;
+
+		}
+		
+		.triangle
+		{
+			display: none;
+    		content: ''; 
+    		position: absolute; /* Абсолютное позиционирование */
+    		left: 90px; top: 50px; /* Положение треугольника */
+    		border: 20px solid transparent; /* Прозрачные границы */
+    		border-bottom: 20px solid #f0f0f0; /* Добавляем треугольник */
+		}
+		.whiteborder .triangle
+		{
+			display: block;
+		}
+
+		#tabs .tabContent
+		{
+			clear: both;
+			display: block;
+			width: 100%;
+			
+			
+			position: relative;
+			top: 0px;
+			z-index: 1;
+			padding: 10px;
+			border-radius: 0 0 3px 3px;
+			background-color: #f0f0f0;
+		}
+		.tabContent-summary
+		{
+			display: block;
+			height: 255px;
+			text-align: left;
+		}
+		.tabContent-summary__stat
+		{
+			display: inline-block;
+			width: 48%;
+			
+			padding-left: 10px;
+			padding-top: 30px;
+		}
+		.tabContent-summary__inbox
+		{
+			display: inline-block;
+			width: 48%;
+			
+			padding-left: 10px;
+			padding-top: 30px;	
+		}
+
+		.headSummary
+		{
+			display: block;
+			font-size: 26pt;
+			color: #2e802c;
+		}
+		.labelSummaryLeft
+		{
+			display: inline;
+			font-size: 16pt;
+			/*color: #d9d9d9;			*/
+			color: #939393;
+		}
+		.labelSummaryRight
+		{
+			display: inline;
+			font-size: 16pt;
+			/*color: #939393;			*/
+			color: black;
+		}
+		.contentSummary
+		{
+			display: block;
+		}
+		.contentSummaryLeft
+		{
+			display: inline-block;
+			font-size: 13pt;
+			/*color: #d9d9d9;				*/
+			color: #939393;
+			text-align: left;
+			width: 49%;
+		}
+		.contentSummaryRight
+		{
+			display: inline-block;
+			font-size: 12pt;
+			/*color: #939393;*/
+			color: black;
+			text-align: right;				
+			width: 49%;
+		}		
+		.headInbox
+		{
+			margin-top: 10px;
+			display: block;
+			font-size: 18pt;
+			/*color: #d9d9d9;	*/
+			color:  #939393;
+		}
+		.infoInbox
+		{
+			display: block;
+			background-color: #fff;
+			height: 30px;
+			margin-top: 3px;
+			text-align: left;
+			color: #292929;
+			padding-left: 10px;
+			padding-top: 10px;
+			font-size: 16px;
+		}
+		.infoInbox span
+		{
+			color: #6dc46b;
+		}
+		
+		#tabs .hide
+		{
+			display: none;
+		}
+		#tabs .show
+		{
+			display: block;
+		}
+		.footer
+		{
+			clear: both;
+			display: block;
+
+			background-color: #74b300;
+			height: 60px;
+			width: 100%;
+
+		}
+		.footer span
+		{
+			display: inline-block;
+			height: 100%;
+			width: 200px;
+			color: white;
+			padding-top: 20px;
+			padding-left: 40px;
+		}
+</style>
+
+</head>
+
+<body class="page">
+	<div class="page__row">
+		
+		<div class="page__cell">
+			<div class="column-nav">
+				
+				<div class="column-nav__org">
+					<div class="logo"> Hr</div>
+					<span class="navUser__link"></span>
+					<span class="navUser__link active_link">Добавить заявку</span>
+					<span class="navUser__link">Закрыть заявку</span>					
+				</div>
+				
+				<div class="column-nav__user">
+					<span class="navUser__link active-green">Сменить пароль</span>
+					<span class="navUser__link">Привязать Email</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="page__cell">
+			<div class="area-work">
+				<div id="tabs">
+						<div class="tab whiteborder"><span class="nav-link">Мой профиль</span><div class="triangle"></div></div>
+						<div class="tab"><span class="nav-link">Мои заявки</span><div class="triangle"></div></div>
+						<div class="tab"><span class="nav-link">Анализ успеваемости</span><div class="triangle"></div></div>
+						<div class="tabContent">
+							<div class="tabContent-summary">
+								<div class="tabContent-summary__stat">
+									<span class="headSummary">Активность</span>
+									<span class="labelSummaryLeft">Общие данные по заявкам </span>
+									<span class="labelSummaryRight">Заказчик 1</span>
+									<hr>
+									<div class="contentSummary">									
+										<span class="contentSummaryLeft">Действующих</span>
+										<span class="contentSummaryRight">23 ед.</span>
+									</div>
+									<div class="contentSummary">									
+										<span class="contentSummaryLeft">Закрытых</span>
+										<span class="contentSummaryRight">77 ед.</span>									
+									</div>
+									<hr>
+									<div class="contentSummary">
+										<span class="contentSummaryLeft">Всего заявок</span>
+										<span class="contentSummaryRight">100 ед.</span>
+									</div>
+								</div>
+								<div class="tabContent-summary__inbox">
+									<span class="headInbox">Информация</span>
+									<div class="infoInbox"><span>Организация:</span> 000 "Кристалл"</div>
+									<div class="infoInbox"><span>Договор:</span> от 23.03.2016 № 565758</div>
+									<div class="infoInbox"><span>Представитель:</span> Иванов Иван Иванович</div>
+								</div>
+							</div>
+							<div class="tabContent-summary">
+									<span class="headSummary">Пользователь</span>
+									<div class="infoInbox">Login</div>
+									<div class="infoInbox">Password</div>
+									<div class="infoInbox">Email</div>
+									<div class="infoInbox">Phone</div>
+									<div class="infoInbox">Срок действия ученой записи</div>
+							</div>
+						</div>	
+						<div class="tabContent">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+						<div class="tabContent">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+				</nav>
+				
+			</div>
+		</div>
+		
+	<script>
+		var tab;
+		var tabContent;
+
+		window.onload = function()
+		{
+			tabContent = document.getElementsByClassName('tabContent');
+			tab = document.getElementsByClassName('tab');
+			hideTabsContent(1);
+		}
+
+		function hideTabsContent(a){
+			for(var i=a; i<tabContent.length; i++)
+			{
+				tabContent[i].classList.remove('show');
+				tabContent[i].classList.add('hide');
+				tab[i].classList.remove('whiteborder');
+			}
+		}
+		
+		document.getElementById('tabs').onclick = function(event){
+			var target = event.target;
+			if (target.className == 'tab'){
+				for (var i=0; i<tab.length; i++){
+					if(target == tab[i]){
+						showTabsContent(i);
+						break;
+					}
+				}
+			}
+		}
+
+	function showTabsContent(b){
+		if (tabContent[b].classList.contains('hide')){
+			hideTabsContent(0);
+			tab[b].classList.add('whiteborder');
+			tabContent[b].classList.remove('hide');
+			tabContent[b].classList.add('show');
+		}
+	}
+	</script>
+	</div>
+	<div class="footer">
+		<span>Проект: Hr4hr</span>
+		<span>Продажи:</span>
+		<span>Поддержка:</span>
+	</div>
+
+</body>
