@@ -170,7 +170,7 @@
 			cursor: pointer;
 			position: relative;
 			z-index: 5;
-			width: 200px;
+			width: 140px;
 			height: 80px;
 			border: 0px solid;
 			background-color: #a5d7a4;
@@ -195,7 +195,7 @@
 			display: none;
     		content: ''; 
     		position: absolute; /* Абсолютное позиционирование */
-    		left: 90px; top: 50px; /* Положение треугольника */
+    		left: 60px; top: 55px; /* Положение треугольника */
     		border: 20px solid transparent; /* Прозрачные границы */
     		border-bottom: 20px solid #f0f0f0; /* Добавляем треугольник */
 		}
@@ -539,6 +539,15 @@ tr
     	width: 376px;
     	height: 300px;
     }
+    .tabContent-summary__column
+    {
+    	padding-top: 10px;
+    	display: block;
+    	float: left;
+    	width: 800px;
+    	height: 200px;
+    	background-color: #f0f0f0;    	
+    }
     .tabContent-summary__funell
     {
     	padding-top: 10px;
@@ -555,18 +564,50 @@ tr
     	display: block;
     	float: left;
     	width: 800px;
-    	height: 300px;
+    	height: 200px;
     	background-color: #f0f0f0;    	
     }
  	#chart_div
  	{
  		display: block;
  		width: 700px;
- 		height: 300px;
+ 		height: 200px;
 
  	}
-</style>
+ 	.tabContent-summary__analitic
+ 	{
+ 		display: block;
+ 		float: left;
+ 		width: 45%;
+ 		padding: 10px;
+ 	}
+ 	.tabContent-summary__analitics
+ 	{
+ 		display: block;
+ 		width: 100%;
+ 		height: 150px;
+ 	}
+ 	.today
+ 	{
+ 		background-color: red;
+ 	}
+ 	.calendar
+ 	{
+ 		margin-top: 10px;
+ 	}
 
+ 	.calendar tr td
+ 	{
+ 		
+ 		width: 140px;
+ 		height: 43px;
+ 		border: 1px solid gray;
+ 	}
+
+</style>
+<script src="js/jquery-1.3.min.js" type="text/javascript"> </script>
+<script src="js/coda.js" type="text/javascript"> </script>
+<link rel="stylesheet" href="css/master.css" type="text/css" media="screen" charset="utf-8" />
 </head>
 
 <body class="page">
@@ -594,7 +635,9 @@ tr
 				<div id="tabs">
 						<div class="tab whiteborder"><span class="nav-link">Мой профиль</span><div class="triangle"></div></div>
 						<div class="tab"><span class="nav-link">Мои заказы</span><div class="triangle"></div></div>
+						<div class="tab"><span class="nav-link">Планирование</span><div class="triangle"></div></div>
 						<div class="tab"><span class="nav-link">Динамика работ</span><div class="triangle"></div></div>
+						<div class="tab"><span class="nav-link">Результаты</span><div class="triangle"></div></div>
 						<div class="tabContent">
 							<div class="tabContent-summary">
 								<div class="tabContent-summary__stat">
@@ -624,12 +667,71 @@ tr
 								</div>
 							</div>
 							<div class="tabContent-summary">
-									<span class="headSummary">Пользователь</span>
+<!--									<span class="headSummary">Пользователь</span>
 									<div class="infoInbox">Login</div>
 									<div class="infoInbox">Password</div>
 									<div class="infoInbox">Email</div>
 									<div class="infoInbox">Phone</div>
-									<div class="infoInbox">Срок действия ученой записи</div>
+									<div class="infoInbox">Срок действия ученой записи</div>-->
+									<span class="headSummary">Календарь событий</span>
+									<table cellspacing="0" class="calendar">
+										<thead>
+											<tr>
+												<th>ПН</th><th>ВТ</th><th>СР</th>
+												<th>ЧТ</th><th>ПТ</th><th>СБ</th>
+												<th>ВС</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="padding" colspan="3"></td>
+												<td> 1</td>
+												<td> 2</td>
+												<td> 3</td>
+												<td> 4</td>
+											</tr>
+											<tr>
+												<td> 5</td>
+												<td> 6</td>
+												<td> 7</td>
+												<td> 8</td>
+												<td class="today"> 9</td>
+												<td>10</td>
+												<td>11</td>
+											</tr>
+											<tr>
+												<td>12</td>
+												<td class="date_has_event">
+													13
+												</td>
+												<td>14</td>
+												<td>15</td>
+												<td>16</td>
+												<td>17</td>
+												<td>18</td>
+											</tr>
+											<tr>
+												<td>19</td>
+												<td>20</td>
+												<td>21</td>
+												<td class="date_has_event">
+													22
+												</td>
+												<td>23</td>
+												<td>24</td>
+												<td>25</td>
+											</tr>	
+											<tr>
+												<td>26</td>
+												<td>27</td>
+												<td>28</td>
+												<td>29</td>
+												<td>30</td>
+												<td>31</td>
+												<td class="padding"></td>
+											</tr>
+										</tbody>
+									</table>
 							</div>
 						</div>	
 						<div class="tabContent">
@@ -658,72 +760,250 @@ tr
 
 						</div>
 						<div class="tabContent">
-							<div class="tabContent-summary">
+						<div class="tabContent-summary">
+							<span class="headSummary">Показатели</span>
+								<div class="tabContent-summary__analitics">
+										<div class="tabContent-summary__analitic">
+											<div class="infoInbox" id = "allNeedHR"></div>
+											<div class="infoInbox" id = "allFactInt"></div>
+											<div class="infoInbox" id = "delta"></div>
+										</div>
+										<div class="tabContent-summary__analitic">
+											<!--<div class="infoInbox" id = "qqq"></div>-->
+											<div class="infoInbox" id = ""></div>
+											<div class="infoInbox" id = ""></div>
+											<div class="infoInbox" id = ""></div>
+										</div>
+								</div>
 								<div class="tabContent-summary__table">
-									<span class="headSummary">График успеваемости</span>
-									<div class="tabContent-summary__graph">
+									<div class="tabContent-summary__column">
+										<div id="chart_div_column" style="width: 860px; height: 300px;"></div>
 										<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  										<div id="chart_div"></div>
-  										<script>
-google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawCurveTypes);
+											<script type="text/javascript">
+												var countHR = 40;
 
-function drawCurveTypes() {
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'X');
-      data.addColumn('number', 'План');
-      data.addColumn('number', 'Факт');
-      // Вычисляем плановый объем для каждого месяца на основании сроков проекта и кол-ва человек
-      // Вычисляем общий срок (Дата окончания - Дата начала)
-      
-      timeStart = "01.05.2018";
-      timeEnd = "31.08.2018";
-      
-      var allTime = timeEnd - timeStart; // Общее время в днях
+										      document.getElementById('allNeedHR').innerHTML = '<span>Всего план набора: </span>' + countHR + ' чел.';
+										      document.getElementById('allFactInt').innerHTML = '<span>Всего запланировано собеседований: </span>' +  60 + ' ';
+											  document.getElementById('delta').innerHTML = '<span>Запас по собеседованиям: </span>' + Math.round(100 - ((countHR/60)*100),1) + ' % ';
+										      delta
 
-      console.log ();
-      // 
-      // 
+										google.charts.load('current', {packages: ['corechart', 'bar']});
+										google.charts.setOnLoadCallback(drawStacked);
 
-      data.addRows([
-        [0, 0, 0],    [1, 10, 5],   [2, 23, 15],  [3, 17, 9],   [4, 18, 10],  [5, 9, 5],
-        [6, 11, 3],   [7, 27, 19],  [8, 33, 25],  [9, 40, 32],  [10, 32, 24], [11, 35, 27],
-        [12, 30, 22], [13, 40, 32], [14, 42, 34], [15, 47, 39], [16, 44, 36], [17, 48, 40],
-        [18, 52, 44], [19, 54, 46], [20, 42, 34], [21, 55, 47], [22, 56, 48], [23, 57, 49],
-        [24, 60, 52], [25, 50, 42], [26, 52, 44], [27, 51, 43], [28, 49, 41], [29, 53, 45],
-        [30, 55, 47], [31, 60, 52], [32, 61, 53], [33, 59, 51], [34, 62, 54], [35, 65, 57],
-        [36, 62, 54], [37, 58, 50], [38, 55, 47], [39, 61, 53], [40, 64, 56], [41, 65, 57],
-        [42, 63, 55], [43, 66, 58], [44, 67, 59], [45, 69, 61], [46, 69, 61], [47, 70, 62],
-        [48, 72, 64], [49, 68, 60], [50, 66, 58], [51, 65, 57], [52, 67, 59], [53, 70, 62],
-        [54, 71, 63], [55, 72, 64], [56, 73, 65], [57, 75, 67], [58, 70, 62], [59, 68, 60],
-        [60, 64, 56], [61, 60, 52], [62, 65, 57], [63, 67, 59], [64, 68, 60], [65, 69, 61],
-        [66, 70, 62], [67, 72, 64], [68, 75, 67], [69, 80, 72]
-      ]);
+										function drawStacked() {
+										      var data = new google.visualization.DataTable();
+										      data.addColumn('date', 'Day');
+										      data.addColumn('number', 'План(чл/дн)');
+										      data.addColumn('number', 'Назначено');
 
-      var options = {
-        hAxis: {
-          title: 'Время, дн.'
-        },
-        vAxis: {
-          title: 'Кол-во кандидатов'
-        },
-        series: {
-          1: {curveType: 'function'}
-        },
-        width: 800,
-        height: 250
-      };
+										      data.addRows([
+										        [new Date(2018, 4, 28), 3, {v: 2, r: '%' }],
+										        [new Date(2018, 4, 29), 3, {v: 5, r: '%'}],
+										        [new Date(2018, 4, 30), 3, {v: 6, r: '%'}],
+										        [new Date(2018, 4, 31), 3, {v: 6, r: '%'}],
+												[new Date(2018, 5, 1), 3, {v: 8, r: '%'}],
+												[new Date(2018, 5, 2), 3, {v: 0, r: '%'}],
 
-      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-      chart.width = "400";
-      chart.height = "300";
-      chart.draw(data, options);
+										        [new Date(2018, 5, 3), 3, {v: 0, r: '%' }],
+										        [new Date(2018, 5, 4), 3, {v: 5, r: '%'}],
+										        [new Date(2018, 5, 5), 3, {v: 6, r: '%'}],
+										        [new Date(2018, 5, 6), 3, {v: 6, r: '%'}],
+												[new Date(2018, 5, 7), 3, {v: 8, r: '%'}],
+												[new Date(2018, 5, 8), 3, {v: 10, r: '%'}],
+												[new Date(2018, 5, 9), 3, {v: 0, r: '%'}],
+												[new Date(2018, 5, 10), 3, {v: 0, r: '%'}]
 
-    }</script>
+
+
+
+										      ]);
+
+										      var options = {
+										        title: 'Распределение тайм-слотов',
+										        
+										        hAxis: {
+										          title: 'Дни',
+										          format: 'd/M/yy'
+										          }
+										        ,
+										        vAxis: {
+										          title: 'Количество собеседований'
+										        },
+										        width: 820,
+										        height: 270
+										      };
+
+										      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div_column'));
+										      chart.draw(data, options);
+										    };
+										</script>
+										
 									</div>
 								</div>
-				</nav>
+						</div>
+					</div>
+						<div class="tabContent">
+							<div class="tabContent-summary">
+									<span class="headSummary">Показатели</span>
+									<div class="tabContent-summary__analitics">
+										<div class="tabContent-summary__analitic">
+											<div class="infoInbox" id = "timeStart"></div>
+											<div class="infoInbox" id = "timeEnd"></div>
+											<div class="infoInbox" id = "allHr"></div>
+										</div>
+										<div class="tabContent-summary__analitic">
+											<!--<div class="infoInbox" id = "qqq"></div>-->
+											<div class="infoInbox" id = "allTime"></div>
+											<div class="infoInbox" id = "oneTime"></div>
+										</div>
+									</div>
+							</div>
+							<div class="tabContent-summary">
+								<div class="tabContent-summary__table">
+									<span class="headSummary">Динамика</span>
+									<div class="tabContent-summary__graph">
+										
+  										<div id="chart_div"></div>
+  										<script type="text/javascript">
+										google.charts.load('current', {packages: ['corechart', 'line']});
+										google.charts.setOnLoadCallback(drawCurveTypes);
+
+										function drawCurveTypes() {
+										      var data = new google.visualization.DataTable();
+										      data.addColumn('number', 'X');
+										      data.addColumn('number', 'План');
+										      data.addColumn('number', 'Факт');
+										      // Вычисляем плановый объем для каждого месяца на основании сроков проекта и кол-ва человек
+										      // Вычисляем общий срок (Дата окончания - Дата начала)
+										      
+										      var timeStart = new Date(2018,05,01);
+										      var timeEnd = new Date(2018,07,31);
+
+
+										      var allTime = Math.ceil(Math.abs(timeEnd.getTime() - timeStart.getTime()) / (1000 * 3600 * 24));
+											  //console.log(daysLag)
+										      var countHR = 40;
+
+										      var planSpeed = allTime/countHR;
+
+
+
+//var curr_date = d.getDate();
+
+//var curr_month = d.getMonth() + 1;
+
+										      document.getElementById('timeStart').innerHTML = '<span>Дата начала работ: </span>'+timeStart.getDate()+'.'+timeStart.getMonth()+'.'+timeStart.getFullYear();
+										      document.getElementById('timeEnd').innerHTML = '<span>Дата окончания работ: </span>' + timeEnd.getDate()+'.'+timeEnd.getMonth()+'.'+timeEnd.getFullYear();
+
+
+
+										      timeStart = timeStart.getTime()/(1000 * 3600 * 24);
+										      timeEnd = timeEnd.getTime()/(1000 * 3600 * 24);
+											 console.log(timeStart);
+											 console.log(timeEnd);
+
+
+										      
+										      document.getElementById('allHr').innerHTML = '<span>Всего кандидатов необходимо: </span>' + countHR + ' чел.';
+										      document.getElementById('allTime').innerHTML = '<span>Общая продолжительность: </span>' + allTime + ' дн.';
+											  document.getElementById('oneTime').innerHTML = '<span>Плановый срок на одного кандидата: </span>' + planSpeed + ' дн.';
+										
+											  //data.addRows([[0, 0, 0]]);
+											  time = 0;
+											  hr = 0;
+											  hr2=0;	  
+											  while (time <= allTime)
+											  {
+												console.log(i);
+												data.addRows([[time,hr,hr2]]);
+												hr = hr + 1;
+												hr2 = Math.abs(hr2 + Math.abs(Math.random() * (-1 - 1)),0);
+											  	time = Math.abs(time + planSpeed,0);
+											  }
+											  
+												/*data.addRows([[0,0,0]]);
+												data.addRows([[5,1,0]]);
+												data.addRows([[10,2,1]]);
+												data.addRows([[15,3,2]]);*/
+
+
+											  //for (var i = timeStart; i <= timeEnd; i+planSpeed) {
+											  	//a = i;
+											  	//b = timeEnd;
+											  	//c = timeEnd;
+											  	//console.log(i);
+											  	//data.addRows([[a,b,c]]);
+											  //}
+										      /*data.addRows([
+										        [0, 0, 0],    [1, 10, 5],   [2, 23, 15],  [3, 17, 9],   [4, 18, 10],  [5, 9, 5],
+										        [6, 11, 3],   [7, 27, 19],  [8, 33, 25],  [9, 40, 32],  [10, 32, 24], [11, 35, 27],
+										        [12, 30, 22], [13, 40, 32], [14, 42, 34], [15, 47, 39], [16, 44, 36], [17, 48, 40],
+										        [18, 52, 44], [19, 54, 46], [20, 42, 34], [21, 55, 47], [22, 56, 48], [23, 57, 49],
+										        [24, 60, 52], [25, 50, 42], [26, 52, 44], [27, 51, 43], [28, 49, 41], [29, 53, 45],
+										        [30, 55, 47], [31, 60, 52], [32, 61, 53], [33, 59, 51], [34, 62, 54], [35, 65, 57],
+										        [36, 62, 54], [37, 58, 50], [38, 55, 47], [39, 61, 53], [40, 64, 56], [41, 65, 57],
+										        [42, 63, 55], [43, 66, 58], [44, 67, 59], [45, 69, 61], [46, 69, 61], [47, 70, 62],
+										        [48, 72, 64], [49, 68, 60], [50, 66, 58], [51, 65, 57], [52, 67, 59], [53, 70, 62],
+										        [54, 71, 63], [55, 72, 64], [56, 73, 65], [57, 75, 67], [58, 70, 62], [59, 68, 60],
+										        [60, 64, 56], [61, 60, 52], [62, 65, 57], [63, 67, 59], [64, 68, 60], [65, 69, 61],
+										        [66, 70, 62], [67, 72, 64], [68, 75, 67], [69, 80, 72]
+										      ]);*/
+										      	console.log(data);
+										      var options = {
+										        hAxis: {
+										          title: 'Время, дн.'
+										        },
+										        vAxis: {
+										          title: 'Кол-во кандидатов'
+										        },
+										        series: {
+										          1: {curveType: 'function'}
+										        },
+										        width: 830,
+										        height: 270
+										      };
+
+										      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+										      chart.width = "400";
+										      chart.height = "200";
+										      chart.draw(data, options);
+
+										    }
+										</script>
+								
+									</div>
+								
+								</div>
+
+				</div>
 				
+			</div>
+			<div class="tabContent">
+				<span class="headSummary">Общие показатели</span>
+				<div class="tabContent-summary__analitics">
+						<div class="tabContent-summary__analitic">
+							<!--<span class="labelSummaryLeft">Общие данные по заявкам </span>-->
+							<div class="infoInbox" id = ""><span>Всего запланировано нанять: </span></div>
+							<div class="infoInbox" id = ""><span>Плановая продолжительность: </span></div>
+							<div class="infoInbox" id = ""><span>Бюджет заказа: </span></div>
+						</div>
+						<div class="tabContent-summary__analitic">
+							<!--<span class="labelSummaryLeft">Общие данные по заявкам </span>-->
+							<!--<div class="infoInbox" id = "qqq"></div>-->
+							<div class="infoInbox" id = ""><span>Всего принято на работу: </span></div>
+							<div class="infoInbox" id = ""><span>Всего затрачено времени: </span></div>
+							<div class="infoInbox" id = ""><span>Оплачено нарядов на работы HR: </span></div>
+						</div>
+				</div>
+				<span class="headSummary">Детальная аналитика</span>
+				<div class="tabContent-summary__analitics">
+						<div class="tabContent-summary__analitic">
+							<!--<span class="labelSummaryLeft">Общие данные по заявкам </span>-->
+							<div class="infoInbox" id = ""><span>Всего этапов работ: </span></div>
+							<div class="infoInbox" id = ""><span>Средняя продолжительность на этап: </span></div>
+							<div class="infoInbox" id = ""><span>Усредненный бюджет этапа: </span></div>
+						</div>					
+				</div>
 			</div>
 		</div>
 </div>
