@@ -170,7 +170,7 @@
 			cursor: pointer;
 			position: relative;
 			z-index: 5;
-			width: 140px;
+			width: 146px;
 			height: 80px;
 			border: 0px solid;
 			background-color: #a5d7a4;
@@ -195,7 +195,7 @@
 			display: none;
     		content: ''; 
     		position: absolute; /* Абсолютное позиционирование */
-    		left: 60px; top: 55px; /* Положение треугольника */
+    		left: 62px; top: 55px; /* Положение треугольника */
     		border: 20px solid transparent; /* Прозрачные границы */
     		border-bottom: 20px solid #f0f0f0; /* Добавляем треугольник */
 		}
@@ -225,6 +225,23 @@
 			width: 834px;
 			
 			text-align: left;
+		}
+		.tabContent-summary__calendar
+		{
+			display: block;
+			float: left;
+			width: 50%;
+			height: 250px;
+		}
+		.tabContent-summary__events
+		{
+			margin-top: 7px;
+			display: block;
+			float: left;
+			width: 50%;
+			height: 250px;
+			background-color: #f0f0f0; 
+			overflow: auto;   	
 		}
 		#tabContent-summary
 		{height: 505px;}
@@ -308,6 +325,22 @@
 			padding-top: 10px;
 			font-size: 16px;
 		}
+		.infoEvent
+		{
+			display: block;
+			background-color: #fff;
+			height: 30px;
+			margin-top: 3px;
+			margin-left: 10px;
+			margin-right: 10px;
+			text-align: left;
+			color: #292929;
+			padding-left: 15px;
+			padding-top: 15px;
+			font-size: 16px;
+		}
+
+
 		.infoInbox span
 		{
 			color: #6dc46b;
@@ -591,6 +624,20 @@ tr
  	{
  		background-color: red;
  	}
+ 	.event
+ 	{
+ 		background-color: olive;
+ 	}
+ 	
+ 	.event div
+ 	{
+ 		display: none;
+ 	}
+
+ 	.event:hover:after div
+ 	{
+ 		display: block;
+ 	}
  	.calendar
  	{
  		margin-top: 10px;
@@ -599,7 +646,7 @@ tr
  	.calendar tr td
  	{
  		
- 		width: 140px;
+ 		width: 60px;
  		height: 43px;
  		border: 1px solid gray;
  	}
@@ -674,6 +721,7 @@ tr
 									<div class="infoInbox">Phone</div>
 									<div class="infoInbox">Срок действия ученой записи</div>-->
 									<span class="headSummary">Календарь событий</span>
+									<div class="tabContent-summary__calendar">
 									<table cellspacing="0" class="calendar">
 										<thead>
 											<tr>
@@ -705,14 +753,14 @@ tr
 													13
 												</td>
 												<td>14</td>
-												<td>15</td>
+												<td class="event">15<div>События</div></td>
 												<td>16</td>
-												<td>17</td>
-												<td>18</td>
+												<td >17</td>
+												<td >18</td>
 											</tr>
 											<tr>
-												<td>19</td>
-												<td>20</td>
+												<td class="event">19</td>
+												<td class="event">20</td>
 												<td>21</td>
 												<td class="date_has_event">
 													22
@@ -732,6 +780,17 @@ tr
 											</tr>
 										</tbody>
 									</table>
+								</div>
+								<div class="tabContent-summary__events">
+											<div class="infoEvent" id = "">Собеседование 1</div>
+											<div class="infoEvent" id = "">Собеседование 2</div>
+											<div class="infoEvent" id = "">Собеседование 3</div>
+											<div class="infoEvent" id = "">Собеседование 4</div>
+											<div class="infoEvent" id = "">Собеседование 5</div>
+											<div class="infoEvent" id = "">Собеседование 6</div>
+											<div class="infoEvent" id = "">Собеседование 7</div>
+											<div class="infoEvent" id = "">Собеседование 8</div>
+								</div>
 							</div>
 						</div>	
 						<div class="tabContent">
